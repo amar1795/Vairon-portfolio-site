@@ -66,15 +66,21 @@ const Portfolio = () => {
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              className="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
+              className="group bg-white rounded-xl shadow-lg overflow-hidden"
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              whileHover={{ y: -10, scale: 1.02 }}
+              whileHover={{ 
+                y: -10, 
+                scale: 1.02,
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ scale: 0.98 }}
             >
               {/* Project Image Placeholder */}
-              <div className="relative h-48 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+              <div className="relative h-48 bg-linear-to-br from-orange-400 to-orange-600 flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-200"></div>
                 <FaRocket className="w-12 h-12 text-white opacity-50" />
                 {project.status === 'coming-soon' && (
                   <div className="absolute top-4 right-4 bg-white text-orange-600 px-3 py-1 rounded-full text-xs font-semibold">
@@ -115,11 +121,16 @@ const Portfolio = () => {
 
           {/* Add New Project Card */}
           <motion.div 
-            className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-dashed border-gray-300 hover:border-orange-600 transition-colors duration-300"
+            className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-dashed border-gray-300"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ 
+              scale: 1.05,
+              borderColor: "#ea580c",
+              transition: { duration: 0.2 }
+            }}
+            whileTap={{ scale: 0.98 }}
           >
             <div className="h-full flex flex-col items-center justify-center p-8 text-center">
               <div className="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4">

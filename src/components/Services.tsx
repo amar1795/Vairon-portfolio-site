@@ -67,15 +67,21 @@ const Services = () => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
+              className="group bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden"
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10, scale: 1.02 }}
+              whileHover={{ 
+                y: -10, 
+                scale: 1.02,
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ scale: 0.98 }}
             >
               {/* Card Header with Icon */}
-              <div className="p-8 bg-gradient-to-br from-orange-50 to-white group-hover:from-orange-100 group-hover:to-orange-50 transition-all duration-300">
-                <div className="w-14 h-14 bg-orange-600 rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+              <div className="p-8 bg-linear-to-br from-orange-50 to-white group-hover:from-orange-100 group-hover:to-orange-50 transition-all duration-200">
+                <div className="w-14 h-14 bg-orange-600 rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-200">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>

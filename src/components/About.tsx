@@ -129,11 +129,17 @@ const About = () => {
             {values.map((value, index) => (
               <motion.div
                 key={index}
-                className="bg-linear-to-br from-orange-50 to-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 text-center"
+                className="bg-linear-to-br from-orange-50 to-white p-8 rounded-xl shadow-md text-center"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                whileHover={{ y: -5 }}
+                whileHover={{ 
+                  y: -10,
+                  scale: 1.02,
+                  boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                  transition: { duration: 0.2 }
+                }}
+                whileTap={{ scale: 0.98 }}
               >
                 <div className="w-12 h-12 bg-orange-600 rounded-full flex items-center justify-center text-white mx-auto mb-4">
                   {value.icon}

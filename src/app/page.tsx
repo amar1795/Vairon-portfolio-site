@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import Portfolio from '@/components/Portfolio';
 import About from '@/components/About';
+import Contact from '@/components/Contact';
 
 const HomePage = () => {
     return (
@@ -13,6 +14,7 @@ const HomePage = () => {
             <Services />
             <Portfolio />
             <About />
+            <Contact />
 
             <section id="services" className="min-h-screen flex items-center justify-center bg-white">
                 <h2 className="text-4xl font-bold text-gray-900">Services Section</h2>

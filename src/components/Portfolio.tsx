@@ -124,11 +124,15 @@ const Portfolio = () => {
             className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-dashed border-gray-300"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            transition={{ 
+              opacity: { duration: 0.5, delay: 0.5 },
+              scale: { duration: 0.2, ease: "easeOut" },
+              borderColor: { duration: 0.2, ease: "easeOut" }
+            }}
             whileHover={{ 
               scale: 1.05,
               borderColor: "#ea580c",
-              transition: { duration: 0.2 }
+              transition: { duration: 0.2, ease: "easeOut" }
             }}
             whileTap={{ scale: 0.98 }}
           >
@@ -169,8 +173,16 @@ const Portfolio = () => {
                 const element = document.getElementById('contact');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -5 }}
+              className="px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl"
+              transition={{ 
+                scale: { duration: 0.2, ease: "easeOut" },
+                y: { duration: 0.2, ease: "easeOut" }
+              }}
+              whileHover={{ 
+                scale: 1.05, 
+                y: -5,
+                transition: { duration: 0.2, ease: "easeOut" }
+              }}
               whileTap={{ scale: 0.95 }}
             >
               Start Your Project

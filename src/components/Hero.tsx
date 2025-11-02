@@ -83,18 +83,34 @@ const Hero = () => {
             >
               <motion.button
                 onClick={() => scrollToSection('services')}
-                className="group px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.05, y: -5 }}
+                className="group px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                transition={{ 
+                  scale: { duration: 0.2, ease: "easeOut" },
+                  y: { duration: 0.2, ease: "easeOut" }
+                }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -5,
+                  transition: { duration: 0.2, ease: "easeOut" }
+                }}
                 whileTap={{ scale: 0.95 }}
               >
                 Explore Our Services
-                <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+                <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-200" />
               </motion.button>
 
               <motion.button
                 onClick={() => scrollToSection('contact')}
-                className="px-8 py-4 bg-white hover:bg-gray-50 text-orange-600 font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-orange-600 flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.05, y: -5 }}
+                className="px-8 py-4 bg-white hover:bg-gray-50 text-orange-600 font-semibold rounded-lg shadow-lg hover:shadow-xl border-2 border-orange-600 flex items-center justify-center gap-2"
+                transition={{ 
+                  scale: { duration: 0.2, ease: "easeOut" },
+                  y: { duration: 0.2, ease: "easeOut" }
+                }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -5,
+                  transition: { duration: 0.2, ease: "easeOut" }
+                }}
                 whileTap={{ scale: 0.95 }}
               >
                 Get Started

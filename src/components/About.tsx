@@ -106,8 +106,16 @@ const About = () => {
                 const element = document.getElementById('contact');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -5 }}
+              className="px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl"
+              transition={{ 
+                scale: { duration: 0.2, ease: "easeOut" },
+                y: { duration: 0.2, ease: "easeOut" }
+              }}
+              whileHover={{ 
+                scale: 1.05, 
+                y: -5,
+                transition: { duration: 0.2, ease: "easeOut" }
+              }}
               whileTap={{ scale: 0.95 }}
             >
               Start Your Project
@@ -132,12 +140,17 @@ const About = () => {
                 className="bg-linear-to-br from-orange-50 to-white p-8 rounded-xl shadow-md text-center"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+                transition={{ 
+                  opacity: { duration: 0.5, delay: 0.7 + index * 0.1 },
+                  y: { duration: 0.2, ease: "easeOut" },
+                  scale: { duration: 0.2, ease: "easeOut" },
+                  boxShadow: { duration: 0.2, ease: "easeOut" }
+                }}
                 whileHover={{ 
                   y: -10,
                   scale: 1.02,
                   boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-                  transition: { duration: 0.2 }
+                  transition: { duration: 0.2, ease: "easeOut" }
                 }}
                 whileTap={{ scale: 0.98 }}
               >

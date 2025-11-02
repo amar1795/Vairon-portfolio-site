@@ -69,7 +69,7 @@ const Footer = () => {
                 <li key={link.id}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="text-gray-400 hover:text-orange-500 transition-colors duration-300"
+                    className="text-gray-400 hover:text-orange-500 transition-colors duration-300 cursor-pointer"
                   >
                     {link.name}
                   </button>

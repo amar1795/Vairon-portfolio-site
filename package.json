@@ -8,15 +8,18 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.16",
+    "framer-motion": "latest",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "tailwindcss": "latest",
-    "framer-motion": "latest"
+    "tailwindcss": "latest"
   },
   "devDependencies": {
-    "typescript": "latest",
+    "@types/node": "24.9.2",
+    "@types/react": "19.2.2",
+    "autoprefixer": "latest",
     "postcss": "latest",
-    "autoprefixer": "latest"
+    "typescript": "latest"
   }
 }

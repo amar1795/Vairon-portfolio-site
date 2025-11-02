@@ -61,32 +61,35 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-white text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link.id}>
-                  <button
-                    onClick={() => scrollToSection(link.id)}
-                    className="text-gray-400 hover:text-orange-500 transition-colors duration-300 cursor-pointer"
-                  >
-                    {link.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Quick Links and Services - Side by Side on Mobile, Separate Columns on Desktop */}
+          <div className="col-span-1 md:col-span-2 grid grid-cols-2 gap-8">
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-white text-lg font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2">
+                {quickLinks.map((link) => (
+                  <li key={link.id}>
+                    <button
+                      onClick={() => scrollToSection(link.id)}
+                      className="text-gray-400 hover:text-orange-500 transition-colors duration-300 cursor-pointer"
+                    >
+                      {link.name}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="text-white text-lg font-semibold mb-4">Our Services</h4>
-            <ul className="space-y-2">
-              <li className="text-gray-400">POS System Development</li>
-              <li className="text-gray-400">Website Development</li>
-              <li className="text-gray-400">App Development</li>
-              <li className="text-gray-400">Cloud Services</li>
-            </ul>
+            {/* Services */}
+            <div>
+              <h4 className="text-white text-lg font-semibold mb-4">Our Services</h4>
+              <ul className="space-y-2">
+                <li className="text-gray-400">POS System Development</li>
+                <li className="text-gray-400">Website Development</li>
+                <li className="text-gray-400">App Development</li>
+                <li className="text-gray-400">Cloud Services</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

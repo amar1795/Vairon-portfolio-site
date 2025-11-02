@@ -1,0 +1,8 @@
+# robots.txt for VAIRON LLC
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://vaironllc.com/sitemap.xml

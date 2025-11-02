@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { FaCashRegister, FaLaptopCode, FaMobileAlt, FaCloud } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
 
 interface Service {
   icon: React.ReactNode;
@@ -38,11 +40,19 @@ const Services = () => {
     },
   ];
 
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-20 bg-white" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
             Our <span className="text-orange-600">Services</span>
           </h2>
@@ -50,14 +60,18 @@ const Services = () => {
             Comprehensive technology solutions tailored to meet your business needs and drive growth
           </p>
           <div className="mt-4 w-24 h-1 bg-orange-600 mx-auto rounded-full"></div>
-        </div>
+        </motion.div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden"
+              className="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden"
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -10, scale: 1.02 }}
             >
               {/* Card Header with Icon */}
               <div className="p-8 bg-gradient-to-br from-orange-50 to-white group-hover:from-orange-100 group-hover:to-orange-50 transition-all duration-300">
@@ -107,23 +121,30 @@ const Services = () => {
                   </svg>
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Call to Action */}
-        <div className="mt-16 text-center">
+        <motion.div 
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
           <p className="text-gray-600 mb-6">Need a custom solution?</p>
-          <button
+          <motion.button
             onClick={() => {
               const element = document.getElementById('contact');
               if (element) element.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+            whileHover={{ scale: 1.05, y: -5 }}
+            whileTap={{ scale: 0.95 }}
           >
             Get in Touch
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   );

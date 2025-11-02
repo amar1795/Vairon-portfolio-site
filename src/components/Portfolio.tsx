@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { FaRocket, FaPlus } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
 
 interface Project {
   id: number;
@@ -37,11 +39,19 @@ const Portfolio = () => {
     },
   ];
 
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section id="portfolio" className="py-20 bg-gray-50">
+    <section id="portfolio" className="py-20 bg-gray-50" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
             Our <span className="text-orange-600">Portfolio</span>
           </h2>
@@ -49,14 +59,18 @@ const Portfolio = () => {
             Showcasing our expertise in delivering innovative solutions across various industries
           </p>
           <div className="mt-4 w-24 h-1 bg-orange-600 mx-auto rounded-full"></div>
-        </div>
+        </motion.div>
 
         {/* Portfolio Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {projects.map((project) => (
-            <div
+          {projects.map((project, index) => (
+            <motion.div
               key={project.id}
-              className="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+              className="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              whileHover={{ y: -10, scale: 1.02 }}
             >
               {/* Project Image Placeholder */}
               <div className="relative h-48 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center overflow-hidden">
@@ -96,11 +110,17 @@ const Portfolio = () => {
                   </svg>
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
 
           {/* Add New Project Card */}
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-dashed border-gray-300 hover:border-orange-600 transition-colors duration-300">
+          <motion.div 
+            className="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-dashed border-gray-300 hover:border-orange-600 transition-colors duration-300"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            whileHover={{ scale: 1.05 }}
+          >
             <div className="h-full flex flex-col items-center justify-center p-8 text-center">
               <div className="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4">
                 <FaPlus className="w-6 h-6 text-orange-600" />
@@ -113,11 +133,16 @@ const Portfolio = () => {
                 Stay Updated
               </button>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Coming Soon Message */}
-        <div className="bg-gradient-to-r from-orange-50 to-orange-100 rounded-2xl p-8 text-center">
+        <motion.div 
+          className="bg-linear-to-r from-orange-50 to-orange-100 rounded-2xl p-8 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
           <div className="max-w-3xl mx-auto">
             <FaRocket className="w-10 h-10 text-orange-600 mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -128,17 +153,19 @@ const Portfolio = () => {
               projects here. Each project represents our commitment to excellence and innovation 
               in delivering top-tier technology solutions.
             </p>
-            <button
+            <motion.button
               onClick={() => {
                 const element = document.getElementById('contact');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              whileHover={{ scale: 1.05, y: -5 }}
+              whileTap={{ scale: 0.95 }}
             >
               Start Your Project
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

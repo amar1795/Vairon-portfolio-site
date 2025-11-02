@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaWhatsapp, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
 
 interface FormData {
   name: string;
@@ -55,11 +57,19 @@ const Contact = () => {
     },
   ];
 
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-orange-50 to-white">
+    <section id="contact" className="py-20 bg-linear-to-br from-orange-50 to-white" ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
             Get In <span className="text-orange-600">Touch</span>
           </h2>
@@ -67,15 +77,19 @@ const Contact = () => {
             Ready to start your project? Contact us today and let's bring your vision to life
           </p>
           <div className="mt-4 w-24 h-1 bg-orange-600 mx-auto rounded-full"></div>
-        </div>
+        </motion.div>
 
         {/* Contact Methods */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {contactMethods.map((method, index) => (
-            <a
+            <motion.a
               key={index}
               href={method.link}
               target={method.title === 'Email' ? '_self' : '_blank'}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5, scale: 1.02 }}
               rel="noopener noreferrer"
               className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-center group"
             >
@@ -85,12 +99,17 @@ const Contact = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-2">{method.title}</h3>
               <p className="text-orange-600 font-semibold mb-1">{method.value}</p>
               <p className="text-gray-600 text-sm">{method.description}</p>
-            </a>
+            </motion.a>
           ))}
         </div>
 
         {/* Contact Form */}
-        <div className="max-w-4xl mx-auto">
+        <motion.div 
+          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
             <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Send Us a Message</h3>
 
@@ -191,15 +210,20 @@ const Contact = () => {
               </button>
             </form>
           </div>
-        </div>
+        </motion.div>
 
         {/* Optional: Address/Map Section */}
-        <div className="mt-12 text-center">
+        <motion.div 
+          className="mt-12 text-center"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
           <div className="inline-flex items-center gap-2 text-gray-600">
             <FaMapMarkerAlt className="w-5 h-5 text-orange-600" />
             <span>Serving clients nationwide</span>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

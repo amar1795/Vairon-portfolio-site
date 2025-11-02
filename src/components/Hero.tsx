@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { FaArrowRight, FaRocket } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -28,47 +29,86 @@ const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Left side - Text content */}
-          <div className="flex-1 text-center lg:text-left">
-            <div className="inline-block mb-4 px-4 py-2 bg-orange-100 rounded-full">
+          <motion.div 
+            className="flex-1 text-center lg:text-left"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.div 
+              className="inline-block mb-4 px-4 py-2 bg-orange-100 rounded-full"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               <span className="text-orange-600 font-semibold text-sm">
                 🚀 Professional Development Services
               </span>
-            </div>
+            </motion.div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+            <motion.h1 
+              className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
               VAIRON <span className="text-orange-600">LLC</span>
-            </h1>
+            </motion.h1>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-700 mb-6">
+            <motion.h2 
+              className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-700 mb-6"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
               Dynamic Development & Evolution
-            </h2>
+            </motion.h2>
 
-            <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0">
+            <motion.p 
+              className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+            >
               Transforming businesses with cutting-edge technology solutions. 
               From POS systems to cloud integration, we deliver excellence at every step.
-            </p>
+            </motion.p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <motion.button
                 onClick={() => scrollToSection('services')}
-                className="group px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2"
+                className="group px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+                whileHover={{ scale: 1.05, y: -5 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Explore Our Services
                 <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </button>
+              </motion.button>
 
-              <button
+              <motion.button
                 onClick={() => scrollToSection('contact')}
-                className="px-8 py-4 bg-white hover:bg-gray-50 text-orange-600 font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-orange-600 flex items-center justify-center gap-2"
+                className="px-8 py-4 bg-white hover:bg-gray-50 text-orange-600 font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-orange-600 flex items-center justify-center gap-2"
+                whileHover={{ scale: 1.05, y: -5 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Get Started
                 <FaRocket />
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
 
             {/* Stats or features */}
-            <div className="mt-12 grid grid-cols-3 gap-6 max-w-lg mx-auto lg:mx-0">
+            <motion.div 
+              className="mt-12 grid grid-cols-3 gap-6 max-w-lg mx-auto lg:mx-0"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+            >
               <div className="text-center lg:text-left">
                 <div className="text-3xl font-bold text-orange-600">100%</div>
                 <div className="text-sm text-gray-600">Client Satisfaction</div>
@@ -81,25 +121,35 @@ const Hero = () => {
                 <div className="text-3xl font-bold text-orange-600">Fast</div>
                 <div className="text-sm text-gray-600">Project Delivery</div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right side - Logo/Image */}
-          <div className="flex-1 flex items-center justify-center">
+          <motion.div 
+            className="flex-1 flex items-center justify-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.4 }}
+          >
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full animate-pulse opacity-20"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-orange-400 to-orange-600 rounded-full animate-pulse opacity-20"></div>
               <div className="relative w-full h-full flex items-center justify-center">
-                <Image
-                  src="/vairon-logo.jpg"
-                  alt="VAIRON LLC - Dynamic Development & Evolution"
-                  width={320}
-                  height={320}
-                  className="rounded-full shadow-2xl transform hover:scale-105 transition-transform duration-500"
-                  priority
-                />
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Image
+                    src="/vairon-logo.jpg"
+                    alt="VAIRON LLC - Dynamic Development & Evolution"
+                    width={320}
+                    height={320}
+                    className="rounded-full shadow-2xl"
+                    priority
+                  />
+                </motion.div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 

@@ -78,6 +78,7 @@ const About = () => {
 
           {/* Right Column - Text Content */}
           <motion.div
+            className="text-center lg:text-left"
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -101,25 +102,27 @@ const About = () => {
               long-term success and adaptability.
             </p>
 
-            <motion.button
-              onClick={() => {
-                const element = document.getElementById('contact');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold cursor-pointer rounded-lg shadow-lg hover:shadow-xl"
-              transition={{ 
-                scale: { duration: 0.2, ease: "easeOut" },
-                y: { duration: 0.2, ease: "easeOut" }
-              }}
-              whileHover={{ 
-                scale: 1.05, 
-                y: -5,
-                transition: { duration: 0.2, ease: "easeOut" }
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Start Your Project
-            </motion.button>
+            <div className="flex justify-center lg:justify-start">
+              <motion.button
+                onClick={() => {
+                  const element = document.getElementById('contact');
+                  if (element) element.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold cursor-pointer rounded-lg shadow-lg hover:shadow-xl"
+                transition={{ 
+                  scale: { duration: 0.2, ease: "easeOut" },
+                  y: { duration: 0.2, ease: "easeOut" }
+                }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -5,
+                  transition: { duration: 0.2, ease: "easeOut" }
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Start Your Project
+              </motion.button>
+            </div>
           </motion.div>
         </div>
 

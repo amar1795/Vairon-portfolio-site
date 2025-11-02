@@ -1,12 +1,18 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import Services from '@/components/Services';
+import Portfolio from '@/components/Portfolio';
+import About from '@/components/About';
 
 const HomePage = () => {
     return (
         <div className="min-h-screen">
             <Navbar />
             <Hero />
+            <Services />
+            <Portfolio />
+            <About />
 
             <section id="services" className="min-h-screen flex items-center justify-center bg-white">
                 <h2 className="text-4xl font-bold text-gray-900">Services Section</h2>

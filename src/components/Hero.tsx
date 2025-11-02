@@ -83,7 +83,7 @@ const Hero = () => {
             >
               <motion.button
                 onClick={() => scrollToSection('services')}
-                className="group px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                className="group px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer"
                 transition={{ 
                   scale: { duration: 0.2, ease: "easeOut" },
                   y: { duration: 0.2, ease: "easeOut" }
@@ -101,7 +101,7 @@ const Hero = () => {
 
               <motion.button
                 onClick={() => scrollToSection('contact')}
-                className="px-8 py-4 bg-white hover:bg-gray-50 text-orange-600 font-semibold rounded-lg shadow-lg hover:shadow-xl border-2 border-orange-600 flex items-center justify-center gap-2"
+                className="px-8 py-4 bg-white hover:bg-gray-50 text-orange-600 font-semibold rounded-lg shadow-lg hover:shadow-xl border-2 border-orange-600 flex items-center justify-center gap-2 cursor-pointer"
                 transition={{ 
                   scale: { duration: 0.2, ease: "easeOut" },
                   y: { duration: 0.2, ease: "easeOut" }

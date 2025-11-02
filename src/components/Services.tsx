@@ -110,7 +110,7 @@ const Services = () => {
                 </ul>
 
                 {/* Learn More Link */}
-                <button className="mt-6 w-full py-2 px-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 group-hover:gap-3">
+                <button className="mt-6 w-full py-2 px-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 group-hover:gap-3 cursor-pointer">
                   Learn More
                   <svg
                     className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1"
@@ -144,7 +144,7 @@ const Services = () => {
               const element = document.getElementById('contact');
               if (element) element.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl"
+            className="px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl cursor-pointer"
             transition={{ 
               scale: { duration: 0.2, ease: "easeOut" },
               y: { duration: 0.2, ease: "easeOut" }

@@ -173,7 +173,7 @@ const Portfolio = () => {
                 const element = document.getElementById('contact');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl"
+              className="px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white font-semibold rounded-lg cursor-pointer shadow-lg hover:shadow-xl"
               transition={{ 
                 scale: { duration: 0.2, ease: "easeOut" },
                 y: { duration: 0.2, ease: "easeOut" }

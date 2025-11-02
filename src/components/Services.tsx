@@ -80,8 +80,8 @@ const Services = () => {
               whileTap={{ scale: 0.98 }}
             >
               {/* Card Header with Icon */}
-              <div className="p-8 bg-linear-to-br from-orange-50 to-white group-hover:from-orange-100 group-hover:to-orange-50 transition-all duration-200">
-                <div className="w-14 h-14 bg-orange-600 rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-200">
+              <div className="p-8 bg-linear-to-br from-orange-50 to-white group-hover:from-orange-100 group-hover:to-orange-50 transition-all duration-200 text-center md:text-left">
+                <div className="w-14 h-14 bg-orange-600 rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-200 mx-auto md:mx-0">
                   {service.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>

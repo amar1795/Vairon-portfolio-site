@@ -50,9 +50,9 @@ const Contact = () => {
     {
       icon: <FaPhone className="w-6 h-6" />,
       title: 'Phone',
-      value: '+1 (XXX) XXX-XXXX',
+      value: '+1 2038120579',
       description: 'Call us directly',
-      link: 'tel:+1234567890',
+      link: 'tel:+12038120579',
       color: 'bg-orange-600',
     },
   ];

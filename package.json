@@ -10,7 +10,7 @@
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.16",
     "framer-motion": "latest",
-    "next": "latest",
+    "next": "15.5.8",
     "react": "latest",
     "react-dom": "latest",
     "react-hook-form": "^7.66.0",

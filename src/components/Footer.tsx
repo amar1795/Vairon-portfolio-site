@@ -97,11 +97,22 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm mb-4 md:mb-0">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-6">
+            <p className="text-gray-400 text-sm text-left md:order-1">
               © {currentYear} VAIRON LLC. All rights reserved.
             </p>
-            <div className="flex space-x-6 text-sm">
+            <p className="text-gray-400 text-sm text-center md:order-2">
+              Built & Shipped by{' '}
+              <a
+                href="https://amar-portfolio-site-rdde.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-orange-600 transition-colors duration-300"
+              >
+                <strong className="text-orange-500 font-bold">AMAR</strong>
+              </a>
+            </p>
+            <div className="flex space-x-6 text-sm md:order-3">
               <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors duration-300">
                 Privacy Policy
               </a>
